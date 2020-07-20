@@ -1,9 +1,16 @@
 '''
 Test 2 vectors/ts if they come from the same distribution.
+Performed in scipy
 
-Tests employed:
-- Kolmogorov-Smirnov test
-- Anderson-Darling test
+1. Kolmogorov-Smirnov test
+	- continuous variables
+	- sensitive to alternative="two-sided"/less/greater
+
+2. Anderson-Darling test
+	- can test k-samples (throw them in a list)
+	- no need to specify alternative
+	- can test both continuous and discrete 
+	- overall better
 
 Example here tests:
 - Continuous (normal vs. uniform)
