@@ -34,11 +34,17 @@ num = '''73167176531330624919225119674426574742355349194934
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450'''
 
-num = num.replace("\n", "")
-nums = [int(i) for i in str(num)]
+import pandas as pd
+import numpy as np
+
+nums = pd.DataFrame([int(i) for i in str(num.replace("\n", ""))])
 print(nums)
 
-for i, _ in enumerate(nums):
+mult = lambda x: np.multiply(x)
+
+print(mult(nums.rolling(13)))
+
+
 
 
 # split into n-sized chunks
