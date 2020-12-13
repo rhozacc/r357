@@ -1,101 +1,189 @@
-# Locales
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Aliases and custom commands below:
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/alenrozac/.oh-my-zsh"
 
-# system
-alias edit="nano ~/.zshrc"
-alias ls='ls -G'
-alias ll="ls -laG"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Default = "robbyrussell"
+ZSH_THEME="robbyrussell"
 
-temp() {
-	cd "/Users/alenrozac/Documents/00_CodeProjects"
-	touch temp.py
-	subl temp.py
-}
-tempd() {
-	cd "/Users/alenrozac/Documents/00_CodeProjects"
-	rm -rf "temp.py"
-}
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
 
 
-
-aib(){
-	echo 75978
-	echo 547061
-	if [ "$1" = "" ]
-	then
-		echo 547061 | pbcopy
-		open -na "Google Chrome" --args --new-window "http://remoteaccess.aib.ie/"
-	fi
-	# /usr/bin/open -a "/Applications/Google Chrome.app" --args --new-window 'http://remoteaccess.aib.ie/'
-}
-
-
-
+# Example aliases
+edit="nano ~/.zshrc"
 
 code(){
 	cd "/Users/alenrozac/Documents/00_CodeProjects"
 	echo
-	ll
+	l
 	echo
 	echo "PICK A PROJECT FOLDER"
 	echo
 	echo "or start a new repo using"
-	echo "mkdir and cd"
 	echo "git init"
-	echo "git remote add origin git@github.com:r357/new_repo"
-	echo "git push -u origin master"
+	echo
+}
+
+
+sp(){
+	cd "/Users/alenrozac/Documents/__ALEN ROŽAC SP"
+	open "/Users/alenrozac/Documents/__ALEN ROŽAC SP"
+	echo
+	echo "SP INIT"
 	echo
 }
 
 
 
-touchbar(){
-	subl "/Users/alenrozac/Library/Application Support/MTMR/items.json"
+
+dav(){
+	echo 30246539 | pbcopy
+}
+
+emso(){
+	echo 0912994500197 | pbcopy
 }
 
 
 
-mag() {
-	subl "/Users/alenrozac/Documents/0_Academic/0_University/2_Magistrski_Studij/9_Magistrska naloga/Code"
-	open "/Users/alenrozac/Documents/0_Academic/0_University/2_Magistrski_Studij/9_Magistrska naloga"
-	spyder3
+
+temp(){
+	cd "/Users/alenrozac/Documents/999_Temp"
+	rm -rf temp.py
+	touch temp.py
+	echo
+	echo "TEMP PY FILE IN DOCS/999_Temp"
+	echo
+	subl temp.py
 }
 
 
+b(){
+	if ["$1" = ""]
+	then 
+		echo
+		echo "PROVIDE URL"
+		echo
+	else 
+		echo [$1]
+		echo "$1"
+		echo "Opening URL using Brave"
+		#/usr/bin/zsh -a "/Applications/Brave Browser.app" --args --new-window "["$1"]"
+		echo
+	fi
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/alenrozac/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/alenrozac/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/Users/alenrozac/miniconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/alenrozac/miniconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-
-
-
-
+gdn(){
+	echo
+	echo "Initializing Digital Garden Workspace"
+	echo
+  cd "/Users/alenrozac/Documents/00_CodeProjects/DigitalGarden_"
+	
+  if [ "$1" = 's' ]; then
+    subl .
+  fi
  
+  if [ "$1" = 'a' ]; then
+    npx @11ty/eleventy --serve
+  fi
+
+  if [ "$1" = 'sn' ]; then
+    subl "./notes/index.md"
+  fi
+}
+
+
+
+
+
+
+
+
