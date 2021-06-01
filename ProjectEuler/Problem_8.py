@@ -1,5 +1,6 @@
-# https://projecteuler.net/problem=8
+#!/usr/local/bin/python3
 
+# https://projecteuler.net/problem=8
 # Largest product in a series
 
 '''
@@ -13,7 +14,7 @@ that have the greatest product. What is the value of this product?
 
 '''
 
-num = '''73167176531330624919225119674426574742355349194934
+number = '''73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
 12540698747158523863050715693290963295227443043557
@@ -34,27 +35,18 @@ num = '''73167176531330624919225119674426574742355349194934
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450'''
 
-import pandas as pd
 import numpy as np
 
-nums = pd.DataFrame([int(i) for i in str(num.replace("\n", ""))])
-print(nums)
+num = str(number.replace('\n', ''))
+MAX = 0
 
-mult = lambda x: np.multiply(x)
+for i, n in enumerate(num):
+    while i < len(num)-12:
+        prod = np.prod([int(m) for m in num[i:i+13]])
+        if prod > MAX: MAX=prod
+        i+=1
 
-print(mult(nums.rolling(13)))
-
-
-
-
-# split into n-sized chunks
-# append product
-# max from the list
-
-
-# print('Example:', Problem(10))
-# print('Soultion:',Problem(1000))
-
+print(MAX)
 
 
 
